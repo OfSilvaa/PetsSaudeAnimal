@@ -1,720 +1,536 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pets Saúde Animal – Ultrassonografia Veterinária em Santo André</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultrassom Veterinário | Agendamento pelo WhatsApp</title>
+  <meta
+    name="description"
+    content="Ultrassom veterinário com precisão e segurança para cães e gatos. Agende agora pelo WhatsApp."
+  >
+  <style>
+    :root {
+      --bg: #f5fbf8;
+      --surface: #ffffff;
+      --surface-soft: #eef8f3;
+      --text: #18342a;
+      --muted: #4f6b61;
+      --primary: #1f9d69;
+      --primary-dark: #15734c;
+      --accent: #dff5e9;
+      --border: #d6ebe1;
+      --shadow: 0 18px 40px rgba(24, 52, 42, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --container: 1120px;
+    }
 
-<style>
-:root {
-  --navy:       #071931;
-  --blue:       #0E4DA4;
-  --blue-mid:   #1A6FD4;
-  --blue-lt:    #3B9EFF;
-  --sky:        #EBF3FF;
-  --ice:        #F5F8FF;
-  --white:      #FFFFFF;
-  --slate:      #64748B;
-  --ink:        #0D1B2A;
-  --line:       #DDE6F5;
-  --wpp:        #22C55E;
-  --wpp-dk:     #16A34A;
-  --gold:       #F0A500;
-  --r:          16px;
-  --r-sm:       10px;
-  --sh:         0 4px 24px rgba(7,25,49,.09);
-  --sh-lg:      0 16px 56px rgba(7,25,49,.16);
-}
+    * {
+      box-sizing: border-box;
+    }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--ink);line-height:1.65;overflow-x:hidden}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ─── UTILITY ─── */
-.container{max-width:1160px;margin:0 auto;padding:0 28px}
-.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:var(--sky);border:1px solid #C2D8F8;border-radius:50px;padding:5px 14px;margin-bottom:18px}
-.tag.white{color:#fff;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3)}
-h2.display{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:900;color:var(--navy);line-height:1.12;letter-spacing:-.03em}
-h2.display em{font-style:italic;color:var(--blue-mid)}
-.sub{font-size:1rem;color:var(--slate);line-height:1.75;max-width:580px}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(31, 157, 105, 0.14), transparent 28%),
+        linear-gradient(180deg, #fbfffd 0%, var(--bg) 100%);
+      line-height: 1.5;
+    }
 
-/* ─── BUTTONS ─── */
-.btn-wpp{display:inline-flex;align-items:center;gap:10px;background:var(--wpp);color:#fff;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;text-decoration:none;border-radius:50px;padding:15px 30px;box-shadow:0 8px 28px rgba(34,197,94,.3);transition:all .2s}
-.btn-wpp:hover{background:var(--wpp-dk);transform:translateY(-2px);box-shadow:0 12px 36px rgba(34,197,94,.42)}
-.btn-wpp svg{flex-shrink:0}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;border-radius:50px;padding:13px 26px;transition:all .2s}
-.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
 
-/* ─── STICKY BAR ─── */
-.sticky{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--navy);display:flex;align-items:center;justify-content:center;gap:16px;padding:13px 20px;box-shadow:0 -4px 30px rgba(7,25,49,.35)}
-.sticky-txt{color:#fff;font-size:.95rem;font-weight:500}
-.sticky-txt strong{color:#7EF0A8;font-size:1.05rem}
-.sticky-close{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;padding:4px;font-size:1.3rem;line-height:1;margin-left:8px;flex-shrink:0}
-.sticky-close:hover{color:#fff}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* ─── NAV ─── */
-header{position:sticky;top:0;z-index:900;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
-header.scrolled{box-shadow:var(--sh)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--blue-lt));border-radius:12px;display:flex;align-items:center;justify-content:center}
-.logo-copy strong{display:block;font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:-.01em}
-.logo-copy small{font-size:.68rem;color:var(--slate);font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{text-decoration:none;font-size:.88rem;font-weight:500;color:var(--slate);transition:color .2s}
-.nav-links a:hover{color:var(--blue)}
-.nav-btn{background:var(--blue);color:#fff !important;font-weight:600 !important;padding:8px 20px;border-radius:50px;font-size:.88rem !important;transition:background .2s !important}
-.nav-btn:hover{background:var(--navy) !important}
-.hbg{display:none;background:none;border:none;cursor:pointer;padding:6px}
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
 
-/* ─── HERO ─── */
-.hero{min-height:100svh;background:linear-gradient(155deg,var(--navy) 0%,#0E2D6E 50%,var(--blue) 100%);position:relative;overflow:hidden;display:flex;align-items:center}
-.hero-noise{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
-.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
-.hero-ring:nth-child(1){width:700px;height:700px;top:-200px;right:-200px}
-.hero-ring:nth-child(2){width:1000px;height:1000px;top:-350px;right:-380px}
-.hero-ring:nth-child(3){width:400px;height:400px;bottom:-100px;left:-100px}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:100px 0 130px;position:relative;z-index:2}
+    .section {
+      padding: 28px 0;
+    }
 
-.hero-text .tag{margin-bottom:22px}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.04em;margin-bottom:22px}
-.hero h1 em{font-style:italic;color:#90C8FF}
-.hero-desc{font-size:1.05rem;color:rgba(255,255,255,.72);line-height:1.78;max-width:460px;margin-bottom:36px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+    .hero {
+      padding: 20px 0 28px;
+    }
 
-.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.trust-avatars{display:flex}
-.trust-avatars img{width:38px;height:38px;border-radius:50%;border:2.5px solid rgba(255,255,255,.5);object-fit:cover;margin-left:-10px}
-.trust-avatars img:first-child{margin-left:0}
-.trust-copy{color:rgba(255,255,255,.75);font-size:.82rem;line-height:1.4}
-.trust-copy strong{color:#fff;display:block;font-size:.9rem}
+    .hero-wrap {
+      display: grid;
+      gap: 24px;
+      align-items: center;
+    }
 
-/* hero visual */
-.hero-visual{position:relative}
-.hero-photo{border-radius:24px;overflow:hidden;box-shadow:var(--sh-lg);aspect-ratio:3/4;max-width:460px;margin:0 auto}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.hero-pill{position:absolute;background:#fff;border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh-lg);font-size:.82rem}
-.hero-pill.p1{top:32px;left:-32px}
-.hero-pill.p2{bottom:44px;right:-28px}
-.hero-pill .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.hero-pill .dot.green{background:var(--wpp);box-shadow:0 0 0 4px rgba(34,197,94,.2);animation:pulse 2s infinite}
-.hero-pill strong{display:block;color:var(--navy);font-size:.88rem;font-weight:700}
-.hero-pill span{color:var(--slate)}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(34,197,94,.2)}50%{box-shadow:0 0 0 8px rgba(34,197,94,.05)}}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
 
-/* ─── PHONE STRIP ─── */
-.phone-strip{background:var(--sky);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 20px;text-align:center}
-.phone-strip p{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-.phone-strip a{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:var(--navy);text-decoration:none;letter-spacing:-.02em;transition:color .2s}
-.phone-strip a:hover{color:var(--blue)}
-.phone-strip small{display:block;color:var(--slate);font-size:.8rem;margin-top:8px}
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
 
-/* ─── SECTION ─── */
-.sec{padding:96px 0}
-.sec-alt{background:var(--ice)}
-.sec-head{margin-bottom:56px}
-.sec-head .sub{margin-top:14px}
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
 
-/* ─── ABOUT ─── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-imgs{position:relative;height:520px}
-.about-img-main{position:absolute;top:0;left:0;width:72%;height:80%;border-radius:20px;overflow:hidden;box-shadow:var(--sh-lg)}
-.about-img-main img{width:100%;height:100%;object-fit:cover;display:block}
-.about-img-side{position:absolute;bottom:0;right:0;width:52%;height:54%;border-radius:20px;overflow:hidden;box-shadow:var(--sh-lg);border:4px solid #fff}
-.about-img-side img{width:100%;height:100%;object-fit:cover;display:block}
-.about-badge{position:absolute;bottom:168px;left:-20px;background:var(--blue);color:#fff;border-radius:var(--r);padding:16px 20px;font-size:.82rem;box-shadow:var(--sh-lg);z-index:3}
-.about-badge strong{display:block;font-size:1.5rem;font-family:'Fraunces',serif;font-weight:900;line-height:1}
-.about-badge span{opacity:.8;font-size:.78rem}
-.about-text .tag{margin-bottom:20px}
-.about-text h2{margin-bottom:18px}
-.about-text .sub{margin-bottom:32px}
-.about-checks{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
-.check-item{display:flex;align-items:flex-start;gap:14px}
-.check-icon{width:26px;height:26px;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.check-item h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
-.check-item p{font-size:.85rem;color:var(--slate);line-height:1.55}
+    .hero p {
+      margin-top: 14px;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
 
-/* ─── INDICATIONS ─── */
-.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.ind-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;box-shadow:var(--sh);transition:all .25s;position:relative;overflow:hidden}
-.ind-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-lt));transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.ind-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
-.ind-card:hover::after{transform:scaleX(1)}
-.ind-icon{width:52px;height:52px;border-radius:var(--r-sm);background:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:1.5rem}
-.ind-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-.ind-card p{font-size:.85rem;color:var(--slate);line-height:1.6}
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-/* ─── STATS ─── */
-.stats-band{background:linear-gradient(135deg,var(--navy),var(--blue));padding:72px 0}
-.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.stat strong{display:block;font-family:'Fraunces',serif;font-size:3rem;font-weight:900;color:#90C8FF;line-height:1;margin-bottom:8px}
-.stat span{font-size:.88rem;color:rgba(255,255,255,.7);font-weight:500}
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
 
-/* ─── HOW ─── */
-.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.how-steps::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue-lt));z-index:0}
-.step{text-align:center;padding:0 16px;position:relative;z-index:1}
-.step-num{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;font-family:'Fraunces',serif;font-size:1.6rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 6px 20px rgba(14,77,164,.3)}
-.step h4{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-.step p{font-size:.84rem;color:var(--slate);line-height:1.6}
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
 
-/* ─── TESTIMONIALS ─── */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testi-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;box-shadow:var(--sh);position:relative}
-.testi-card::before{content:'\201C';font-family:'Fraunces',serif;font-size:5rem;font-weight:900;color:var(--blue);opacity:.12;position:absolute;top:-8px;left:18px;line-height:1}
-.stars{color:var(--gold);font-size:1rem;margin-bottom:14px;letter-spacing:2px}
-.testi-card p{font-size:.9rem;color:var(--slate);line-height:1.7;margin-bottom:20px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:12px}
-.testi-author img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:center top}
-.testi-author strong{display:block;font-size:.88rem;color:var(--navy);font-weight:700}
-.testi-author span{font-size:.78rem;color:var(--slate)}
+    .button-primary {
+      background: linear-gradient(135deg, #24be7a 0%, var(--primary) 100%);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(31, 157, 105, 0.25);
+    }
 
-/* ─── DIFFERENTIALS ─── */
-.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.diff-visual{border-radius:24px;overflow:hidden;box-shadow:var(--sh-lg);aspect-ratio:4/5}
-.diff-visual img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.diff-items{display:flex;flex-direction:column;gap:22px}
-.diff-item{display:flex;gap:18px;align-items:flex-start;padding:22px;background:var(--white);border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);transition:all .2s}
-.diff-item:hover{border-color:#C2D8F8;box-shadow:var(--sh-lg);transform:translateX(4px)}
-.diff-ico{width:46px;height:46px;border-radius:var(--r-sm);background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.diff-item h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-.diff-item p{font-size:.83rem;color:var(--slate);line-height:1.6}
+    .button-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
 
-/* ─── CONTACT ─── */
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.contact-info h2{margin-bottom:16px}
-.contact-info .sub{margin-bottom:36px}
-.contact-cards{display:flex;flex-direction:column;gap:16px}
-.contact-card{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--white);border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh)}
-.contact-card-ico{width:44px;height:44px;border-radius:var(--r-sm);background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-card h4{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);margin-bottom:3px}
-.contact-card a,.contact-card p{font-size:.97rem;font-weight:700;color:var(--navy);text-decoration:none;line-height:1.4}
-.contact-card a:hover{color:var(--blue)}
-.hours-box{background:var(--white);border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);padding:28px 26px}
-.hours-box h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:22px;display:flex;align-items:center;gap:10px}
-.hours-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem}
-.hours-row:last-child{border-bottom:none}
-.hours-row .day{font-weight:600;color:var(--ink)}
-.hours-row .time{color:var(--slate)}
-.hours-row .closed{color:#EF4444;font-weight:600}
-.hours-row.today .day{color:var(--blue)}
-.hours-row.today .time{color:var(--blue);font-weight:600}
+    .hero-card {
+      padding: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fbf6 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
 
-/* ─── CTA STRIP ─── */
-.cta-strip{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);padding:88px 0;text-align:center;position:relative;overflow:hidden}
-.cta-strip::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(255,255,255,.06);top:-200px;left:50%;transform:translateX(-50%)}
-.cta-strip h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:16px;letter-spacing:-.03em;position:relative}
-.cta-strip p{color:rgba(255,255,255,.72);font-size:1rem;max-width:500px;margin:0 auto 36px;position:relative}
-.cta-strip .tags-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px;position:relative}
-.cta-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:6px 16px;color:rgba(255,255,255,.8);font-size:.8rem;font-weight:500}
+    .stats {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
 
-/* ─── FOOTER ─── */
-footer{background:var(--ink);padding:44px 28px 120px;text-align:center;color:rgba(255,255,255,.5);font-size:.82rem}
-footer strong{color:#fff}
-footer a{color:rgba(255,255,255,.5);text-decoration:none}
-footer a:hover{color:#fff}
+    .stat {
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
 
-/* ─── MOBILE ─── */
-@media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;gap:44px;padding:80px 0 120px;text-align:center}
-  .hero-desc{margin-left:auto;margin-right:auto}
-  .hero-btns{justify-content:center}
-  .hero-trust{justify-content:center}
-  .hero-photo{max-width:380px}
-  .hero-pill.p1{left:-10px;top:20px}
-  .hero-pill.p2{right:-10px}
-  .about-grid,.diff-grid,.contact-wrap{grid-template-columns:1fr}
-  .about-imgs{height:380px}
-  .diff-visual{display:none}
-  .ind-grid{grid-template-columns:1fr 1fr}
-  .how-steps{grid-template-columns:1fr 1fr;gap:32px}
-  .how-steps::before{display:none}
-  .stats-inner{grid-template-columns:1fr 1fr}
-  .testi-grid{grid-template-columns:1fr}
-  .hbg{display:block}
-  .nav-links{display:none}
-}
-@media(max-width:600px){
-  .sec{padding:64px 0}
-  .ind-grid,.how-steps{grid-template-columns:1fr}
-  .stats-inner{grid-template-columns:1fr 1fr;gap:20px}
-  .sticky{gap:10px;padding:11px 14px}
-  .sticky-txt{font-size:.82rem}
-  .sticky-txt strong{font-size:.9rem}
-  .about-imgs{height:300px}
-  .about-badge{bottom:120px;left:-10px}
-  .hero-pill{display:none}
-}
-</style>
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .cards,
+    .two-col,
+    .testimonials {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .card p,
+    .card li,
+    .section-intro,
+    .testimonial p {
+      color: var(--muted);
+    }
+
+    .section-title {
+      margin-bottom: 10px;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      line-height: 1.15;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .highlight {
+      background: var(--surface-soft);
+    }
+
+    .testimonial {
+      position: relative;
+      padding: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial strong {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.96rem;
+    }
+
+    .final-cta {
+      padding-bottom: 88px;
+    }
+
+    .cta-box {
+      padding: 26px;
+      background: linear-gradient(135deg, #18342a 0%, #285946 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 48px rgba(24, 52, 42, 0.18);
+    }
+
+    .cta-box p {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .cta-box .button-secondary {
+      background: #fff;
+      color: var(--primary-dark);
+      border: 0;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(37, 211, 102, 0.35);
+      animation: pulse 2.2s infinite;
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
+      }
+      70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    @media (min-width: 720px) {
+      .hero {
+        padding: 36px 0 40px;
+      }
+
+      .hero-wrap,
+      .two-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonials,
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- STICKY BOTTOM BAR -->
-<div class="sticky" id="stickyBar">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="#22C55E"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span class="sticky-txt">Agende agora: <strong>(11) 93099-3736</strong></span>
-  <a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="btn-wpp" style="padding:10px 22px;font-size:.9rem;">Falar no WhatsApp</a>
-  <button class="sticky-close" onclick="document.getElementById('stickyBar').style.display='none'" aria-label="Fechar">×</button>
-</div>
-
-<!-- HEADER -->
-<header id="header">
-  <div class="container">
-    <nav class="nav">
-      <a href="#" class="logo-wrap">
-        <div class="logo-mark">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <div class="logo-copy">
-          <strong>Pets Saúde Animal</strong>
-          <small>Diagnóstico por Imagem</small>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#indicacoes">Indicações</a></li>
-        <li><a href="#diferenciais">Diferenciais</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="nav-btn">Agendar</a></li>
-      </ul>
-      <button class="hbg" aria-label="Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-noise"></div>
-  <div class="hero-ring"></div><div class="hero-ring"></div><div class="hero-ring"></div>
-  <div class="container">
-    <div class="hero-inner">
-
-      <div class="hero-text">
-        <div class="tag white">✦ Especialista em Ultrassonografia Veterinária</div>
-        <h1>Diagnóstico preciso para quem não pode <em>falar</em></h1>
-        <p class="hero-desc">Ultrassonografia veterinária de alta resolução para cães e gatos em Santo André. Laudo digital em até 24h e atendimento que o seu pet merece.</p>
-        <div class="hero-btns">
-          <a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="btn-wpp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Agendar pelo WhatsApp
-          </a>
-          <a href="#sobre" class="btn-ghost">Saiba mais ↓</a>
-        </div>
-        <div class="hero-trust">
-          <div class="trust-avatars">
-            <!-- Real photos of veterinarians / people with pets from Unsplash -->
-            <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=80&h=80&q=80&fit=crop&crop=face" alt="tutor">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&q=80&fit=crop&crop=face" alt="tutor">
-            <img src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?w=80&h=80&q=80&fit=crop&crop=face" alt="tutor">
-            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=80&h=80&q=80&fit=crop&crop=face" alt="tutor">
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <span class="badge">Agende hoje mesmo pelo WhatsApp</span>
+          <h1>Ultrassom Veterinário com Precisão e Segurança</h1>
+          <p>Atendimento especializado para cães e gatos com avaliação cuidadosa, agilidade no processo e foco em um diagnóstico confiável para orientar o melhor cuidado.</p>
+          <div class="cta-row">
+            <a
+              class="button button-primary"
+              href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Agendar pelo WhatsApp
+            </a>
+            <a class="button button-secondary" href="#servico">Saiba mais</a>
           </div>
-          <div class="trust-copy">
-            <strong>+500 tutores satisfeitos</strong>
-            ★★★★★ 5.0 de avaliação média
+          <div class="stats">
+            <div class="stat">
+              <strong>Atendimento rápido</strong>
+              <span>Agilidade no agendamento e orientação clara para o tutor.</span>
+            </div>
+            <div class="stat">
+              <strong>Diagnóstico com segurança</strong>
+              <span>Exame não invasivo para apoiar decisões mais assertivas.</span>
+            </div>
           </div>
+        </div>
+
+        <div class="hero-card" aria-label="Imagem ilustrativa do atendimento veterinário">
+          <svg viewBox="0 0 640 520" role="img" aria-labelledby="hero-svg-title">
+            <title id="hero-svg-title">Ilustração leve de exame veterinário em pet</title>
+            <defs>
+              <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ebfaf2"></stop>
+                <stop offset="100%" stop-color="#d8f3e4"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="16" y="16" width="608" height="488" rx="30" fill="url(#cardBg)"></rect>
+            <rect x="66" y="86" width="190" height="112" rx="22" fill="#ffffff"></rect>
+            <rect x="98" y="118" width="124" height="18" rx="9" fill="#d6ebe1"></rect>
+            <rect x="98" y="150" width="88" height="18" rx="9" fill="#1f9d69" opacity="0.8"></rect>
+            <circle cx="448" cy="154" r="58" fill="#ffffff"></circle>
+            <path d="M420 160c0-22 18-40 40-40s40 18 40 40v12h-80z" fill="#1f9d69" opacity="0.2"></path>
+            <path d="M259 314c0-66 54-120 120-120 78 0 131 62 131 137 0 67-52 117-122 117-72 0-129-55-129-134z" fill="#ffffff"></path>
+            <ellipse cx="340" cy="332" rx="96" ry="74" fill="#ffdfbd"></ellipse>
+            <ellipse cx="254" cy="324" rx="62" ry="50" fill="#f4cda7"></ellipse>
+            <circle cx="238" cy="310" r="12" fill="#18342a"></circle>
+            <circle cx="410" cy="304" r="16" fill="#18342a"></circle>
+            <path d="M434 258l42-58 32 24-36 58z" fill="#1f9d69"></path>
+            <rect x="452" y="214" width="90" height="28" rx="14" fill="#18342a"></rect>
+            <rect x="172" y="370" width="292" height="30" rx="15" fill="#1f9d69" opacity="0.16"></rect>
+            <circle cx="196" cy="212" r="26" fill="#1f9d69" opacity="0.14"></circle>
+            <circle cx="544" cy="344" r="18" fill="#1f9d69" opacity="0.14"></circle>
+          </svg>
         </div>
       </div>
+    </section>
 
-      <div class="hero-visual">
-        <div class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=900&h=1100&q=85&fit=crop&crop=center" alt="Veterinária realizando ultrassom em cão">
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Benefícios rápidos</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Não invasivo</h3>
+            <p>Um exame confortável para o pet e tranquilo para o tutor.</p>
+          </article>
+          <article class="card">
+            <h3>Rápido e seguro</h3>
+            <p>Processo ágil para avaliação com precisão e cuidado.</p>
+          </article>
+          <article class="card">
+            <h3>Resultado confiável</h3>
+            <p>Informações importantes para apoiar a conduta clínica.</p>
+          </article>
+          <article class="card">
+            <h3>Atendimento especializado</h3>
+            <p>Foco em cães e gatos com orientação clara em cada etapa.</p>
+          </article>
         </div>
-        <div class="hero-pill p1">
-          <div class="dot green"></div>
+      </div>
+    </section>
+
+    <section class="section highlight" id="servico">
+      <div class="container two-col">
+        <div class="card">
+          <h2 class="section-title">Sobre o serviço</h2>
+          <p class="section-intro">O ultrassom veterinário é um exame de imagem que ajuda a avaliar órgãos internos, detectar alterações e acompanhar a saúde do pet com mais segurança.</p>
+          <p>Ele pode ser solicitado em casos de dor, alterações urinárias, suspeita de gestação, vômitos, check-up e outras situações em que o diagnóstico precoce faz diferença no tratamento.</p>
+          <div class="cta-row">
+            <a
+              class="button button-primary"
+              href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">Indicações</h2>
+          <ul>
+            <li>Gestação</li>
+            <li>Avaliação abdominal</li>
+            <li>Problemas urinários</li>
+            <li>Check-up</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Diferenciais</h2>
+        <p class="section-intro">Uma experiência objetiva, acolhedora e pensada para facilitar o agendamento e acelerar o cuidado com o seu pet.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Equipamento moderno</h3>
+            <p>Recursos atualizados para melhor visualização das estruturas avaliadas.</p>
+          </article>
+          <article class="card">
+            <h3>Profissional qualificado</h3>
+            <p>Atendimento técnico com atenção aos detalhes e à segurança do exame.</p>
+          </article>
+          <article class="card">
+            <h3>Laudo rápido</h3>
+            <p>Mais agilidade para que o tratamento possa ser conduzido sem demora.</p>
+          </article>
+          <article class="card">
+            <h3>Atendimento ágil</h3>
+            <p>Contato fácil e botões sempre visíveis para converter em poucos cliques.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight">
+      <div class="container">
+        <h2 class="section-title">O que os tutores dizem</h2>
+        <div class="testimonials">
+          <article class="testimonial">
+            <p>"Fui atendida com rapidez e consegui agendar pelo WhatsApp no mesmo dia. O exame foi tranquilo e passou muita confiança."</p>
+            <strong>Mariana, tutora da Mel</strong>
+          </article>
+          <article class="testimonial">
+            <p>"Explicaram tudo de forma simples e o atendimento foi muito atencioso. Recomendo para quem precisa de agilidade e cuidado."</p>
+            <strong>Carlos, tutor do Thor</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container">
+        <div class="cta-box">
           <div>
-            <strong>Disponível agora</strong>
-            <span>Agende hoje mesmo</span>
+            <h2 class="section-title">Agende agora e cuide da saúde do seu pet</h2>
+            <p>Agende hoje mesmo pelo WhatsApp e tenha um atendimento rápido, seguro e direto.</p>
           </div>
-        </div>
-        <div class="hero-pill p2">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-          <div>
-            <strong>Laudo digital</strong>
-            <span>Entrega em até 24h</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PHONE STRIP -->
-<div class="phone-strip">
-  <p>📞 Ligue ou envie mensagem</p>
-  <a href="tel:+5511930993736">(11) 93099-3736</a>
-  <small>WhatsApp disponível · Resposta rápida garantida</small>
-</div>
-
-<!-- ABOUT -->
-<section class="sec" id="sobre">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-imgs">
-        <div class="about-img-main">
-          <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800&h=650&q=80&fit=crop" alt="Veterinária com equipamento de ultrassom">
-        </div>
-        <div class="about-img-side">
-          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&h=420&q=80&fit=crop&crop=center" alt="Cachorro sendo examinado">
-        </div>
-        <div class="about-badge">
-          <strong>+10</strong>
-          <span>anos de experiência</span>
-        </div>
-      </div>
-      <div class="about-text">
-        <div class="tag">Sobre o serviço</div>
-        <h2 class="display">O que é a <em>ultrassonografia</em> veterinária?</h2>
-        <p class="sub">Exame de imagem não invasivo que usa ondas sonoras para visualizar os órgãos internos do seu pet em tempo real — sem dor, sem radiação e completamente seguro.</p>
-        <div class="about-checks">
-          <div class="check-item">
-            <div class="check-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Não invasivo e sem radiação</h4>
-              <p>Totalmente seguro para qualquer pet, inclusive gestantes.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Imagens em alta resolução</h4>
-              <p>Equipamentos de última geração para diagnósticos precisos e confiáveis.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Laudo digital em até 24h</h4>
-              <p>Relatório técnico assinado digitalmente enviado diretamente ao veterinário.</p>
-            </div>
-          </div>
-          <div class="check-item">
-            <div class="check-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4>Atendimento humanizado</h4>
-              <p>Ambiente calmo e profissionais que tratam cada pet com carinho e respeito.</p>
-            </div>
-          </div>
-        </div>
-        <a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="btn-wpp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Agendar agora
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INDICATIONS -->
-<section class="sec sec-alt" id="indicacoes">
-  <div class="container">
-    <div class="sec-head">
-      <div class="tag">Indicações</div>
-      <h2 class="display">Quando fazer o <em>ultrassom</em>?</h2>
-      <p class="sub">O exame é indicado em diversas situações clínicas. Confira os principais casos em que seu pet pode se beneficiar.</p>
-    </div>
-    <div class="ind-grid">
-      <div class="ind-card">
-        <div class="ind-icon">🫀</div>
-        <h3>Avaliação Abdominal</h3>
-        <p>Exame completo de fígado, rins, baço, bexiga, pâncreas e intestinos para diagnóstico de alterações internas.</p>
-      </div>
-      <div class="ind-card">
-        <div class="ind-icon">🐾</div>
-        <h3>Gestação</h3>
-        <p>Confirmação de gravidez, contagem de filhotes, avaliação de vitalidade fetal e estimativa da data do parto.</p>
-      </div>
-      <div class="ind-card">
-        <div class="ind-icon">💧</div>
-        <h3>Problemas Urinários</h3>
-        <p>Diagnóstico de cálculos, cistite, infecções e alterações renais que causam dificuldade ou dor ao urinar.</p>
-      </div>
-      <div class="ind-card">
-        <div class="ind-icon">🫁</div>
-        <h3>Alterações Hepáticas</h3>
-        <p>Identificação de nódulos, cistos, hepatomegalia e outras alterações no fígado e vias biliares.</p>
-      </div>
-      <div class="ind-card">
-        <div class="ind-icon">❤️</div>
-        <h3>Cardiologia</h3>
-        <p>Ecocardiograma com Doppler para avaliação do coração, válvulas cardíacas e função cardiovascular.</p>
-      </div>
-      <div class="ind-card">
-        <div class="ind-icon">🔍</div>
-        <h3>Check-up Preventivo</h3>
-        <p>Monitoramento da saúde interna mesmo sem sintomas visíveis. Ideal para pets acima de 7 anos.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-band">
-  <div class="container">
-    <div class="stats-inner">
-      <div class="stat"><strong>+5mil</strong><span>Exames realizados</span></div>
-      <div class="stat"><strong>+10</strong><span>Anos de experiência</span></div>
-      <div class="stat"><strong>98%</strong><span>Tutores satisfeitos</span></div>
-      <div class="stat"><strong>24h</strong><span>Prazo do laudo digital</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section class="sec">
-  <div class="container">
-    <div class="sec-head" style="text-align:center">
-      <div class="tag">Passo a passo</div>
-      <h2 class="display">Como <em>funciona</em>?</h2>
-      <p class="sub" style="margin:14px auto 0">Do contato ao laudo, o processo é simples, rápido e sem complicações.</p>
-    </div>
-    <div class="how-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Fale pelo WhatsApp</h4>
-        <p>Clique no botão e inicie a conversa. Resposta em minutos durante o horário de atendimento.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Informe os dados</h4>
-        <p>Nos diga o nome, espécie e o motivo do exame. Podemos ajudar a indicar o melhor protocolo.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Confirme o horário</h4>
-        <p>Escolha o melhor dia e horário disponível. Agendamento rápido e sem burocracia.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Realize o exame</h4>
-        <p>Seu pet é atendido com cuidado e tecnologia. Laudo enviado digitalmente em até 24h.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="sec sec-alt">
-  <div class="container">
-    <div class="sec-head">
-      <div class="tag">Depoimentos</div>
-      <h2 class="display">O que os tutores <em>dizem</em></h2>
-      <p class="sub">Mais de 500 famílias já confiaram a saúde dos seus pets à Pets Saúde Animal.</p>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>Atendimento incrível com minha gatinha Luna. A veterinária explicou tudo com clareza e o laudo chegou no dia seguinte. Super recomendo a qualquer tutor que precise de um diagnóstico preciso e humanizado!</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&q=80&fit=crop&crop=face" alt="Mariana S.">
-          <div>
-            <strong>Mariana S.</strong>
-            <span>Tutora da Luna, gata de 4 anos</span>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>Profissional extremamente capacitada e atenciosa. O Rex ficou bem tranquilo durante o exame. O laudo veio detalhado e me ajudou muito na conversa com o clínico. Nota 10, sem dúvida!</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&q=80&fit=crop&crop=face" alt="Carlos M.">
-          <div>
-            <strong>Carlos M.</strong>
-            <span>Tutor do Rex, labrador de 7 anos</span>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <p>Agendei pelo WhatsApp no mesmo dia e fui atendida rapidamente. Equipamento moderno, ambiente limpo e profissional super qualificada. Minha Mel ficou calma o tempo todo. Recomendo demais!</p>
-        <div class="testi-author">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&q=80&fit=crop&crop=face" alt="Priscila R.">
-          <div>
-            <strong>Priscila R.</strong>
-            <span>Tutora da Mel, dachshund de 5 anos</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFFERENTIALS -->
-<section class="sec" id="diferenciais">
-  <div class="container">
-    <div class="diff-grid">
-      <div class="diff-visual">
-        <img src="https://images.unsplash.com/photo-1601758174493-45d0a4d3e407?w=700&h=900&q=80&fit=crop&crop=center" alt="Veterinária com pet">
-      </div>
-      <div>
-        <div class="tag">Por que nos escolher</div>
-        <h2 class="display" style="margin-bottom:14px">Nossos <em>diferenciais</em></h2>
-        <p class="sub" style="margin-bottom:36px">Somos referência em diagnóstico por imagem veterinário em Santo André. Veja o que nos destaca.</p>
-        <div class="diff-items">
-          <div class="diff-item">
-            <div class="diff-ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <h4>Especialista em Diagnóstico por Imagem</h4>
-              <p>Profissional com formação específica em ultrassonografia veterinária e atualização constante.</p>
-            </div>
-          </div>
-          <div class="diff-item">
-            <div class="diff-ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div>
-              <h4>Agendamento ágil pelo WhatsApp</h4>
-              <p>Resposta em minutos. Sem espera, sem formulários complicados.</p>
-            </div>
-          </div>
-          <div class="diff-item">
-            <div class="diff-ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div>
-              <h4>Equipamento digital de alta tecnologia</h4>
-              <p>Ultrassonógrafo de última geração com Doppler colorido para imagens de altíssima resolução.</p>
-            </div>
-          </div>
-          <div class="diff-item">
-            <div class="diff-ico">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            </div>
-            <div>
-              <h4>Atendimento humanizado e sem estresse</h4>
-              <p>Ambiente calmo e equipe treinada para deixar seu pet à vontade durante todo o exame.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT & HOURS -->
-<section class="sec sec-alt" id="contato">
-  <div class="container">
-    <div class="sec-head">
-      <div class="tag">Contato</div>
-      <h2 class="display">Onde estamos e <em>como</em> chegar</h2>
-    </div>
-    <div class="contact-wrap">
-      <div class="contact-info">
-        <div class="contact-cards">
-          <div class="contact-card">
-            <div class="contact-card-ico">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.61 3.4 2 2 0 013.6 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 8.6a16 16 0 006.29 6.29l.98-.98a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div>
-              <h4>WhatsApp / Telefone</h4>
-              <a href="https://wa.me/5511930993736" target="_blank">(11) 93099-3736</a>
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-card-ico">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <h4>Endereço</h4>
-              <p>R. Sidnei, 363 – Utinga<br>Santo André – SP, 09230-000</p>
-            </div>
-          </div>
-          <!-- Google Maps embed -->
-          <div style="border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);margin-top:4px">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.2!2d-46.5297!3d-23.6502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUi4gU2lkbmVpLCAzNjMgLSBVdGluZ2EsIFNhbnRvIEFuZHLDqSAtIFNQLCAwOTIzMC0wMDA!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-              width="100%" height="200" style="border:0;display:block" allowfullscreen loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade" title="Localização Pets Saúde Animal">
-            </iframe>
-          </div>
-          <a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="btn-wpp" style="justify-content:center;margin-top:4px">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Agendar pelo WhatsApp
+          <a
+            class="button button-secondary"
+            href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agendar no WhatsApp
           </a>
         </div>
       </div>
-      <div class="hours-box">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E4DA4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Horário de Funcionamento
-        </h3>
-        <div class="hours-row"><span class="day">Segunda-feira</span><span class="time">14:00 – 17:30</span></div>
-        <div class="hours-row"><span class="day">Terça-feira</span><span class="time">09:00–12:00 · 14:00–17:30</span></div>
-        <div class="hours-row"><span class="day">Quarta-feira</span><span class="time">09:00–12:00 · 14:00–17:30</span></div>
-        <div class="hours-row"><span class="day">Quinta-feira</span><span class="time">09:00–12:00 · 14:00–17:30</span></div>
-        <div class="hours-row"><span class="day">Sexta-feira</span><span class="time">09:00–12:00 · 14:00–17:30</span></div>
-        <div class="hours-row"><span class="day">Sábado</span><span class="time">09:00 – 12:30</span></div>
-        <div class="hours-row"><span class="day">Domingo</span><span class="time closed">Fechado</span></div>
-        <div style="margin-top:20px;padding:14px;background:var(--sky);border-radius:var(--r-sm);font-size:.82rem;color:var(--slate)">
-          <strong style="color:var(--navy);display:block;margin-bottom:4px">📱 Agendamento pelo WhatsApp</strong>
-          Envie uma mensagem e confirme seu horário em minutos.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- CTA STRIP -->
-<section class="cta-strip">
-  <div class="container" style="position:relative;z-index:1">
-    <h2>Cuide da saúde do seu pet hoje 🐾</h2>
-    <p>Diagnóstico rápido, preciso e humanizado. Agende agora pelo WhatsApp e garanta o melhor cuidado para o seu animal.</p>
-    <a href="https://wa.me/5511930993736?text=Olá%2C+gostaria+de+agendar+um+ultrassom+para+meu+pet." target="_blank" class="btn-wpp" style="font-size:1.1rem;padding:18px 38px">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Falar no WhatsApp · (11) 93099-3736
-    </a>
-    <div class="tags-row">
-      <span class="cta-tag">✓ Sem burocracias</span>
-      <span class="cta-tag">✓ Laudo em 24h</span>
-      <span class="cta-tag">✓ Atendimento humanizado</span>
-      <span class="cta-tag">✓ +500 tutores satisfeitos</span>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p style="margin-bottom:8px"><strong>Pets Saúde Animal</strong> – Ultrassonografia Veterinária</p>
-  <p>R. Sidnei, 363 – Utinga, Santo André – SP · <a href="tel:+5511930993736">(11) 93099-3736</a></p>
-  <p style="margin-top:16px;opacity:.5;font-size:.75rem">© 2025 Pets Saúde Animal. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-// Header shadow on scroll
-window.addEventListener('scroll', () => {
-  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
-});
-
-// Highlight today's hours
-(function(){
-  const days = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
-  const today = days[new Date().getDay()];
-  document.querySelectorAll('.hours-row').forEach(row => {
-    if(row.querySelector('.day')?.textContent === today) row.classList.add('today');
-  });
-})();
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
-  });
-});
-</script>
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Agendar pelo WhatsApp"
+  >
+    <span class="sr-only">Agendar pelo WhatsApp</span>
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.19c-.27-.14-1.57-.78-1.82-.87-.24-.09-.42-.14-.59.14-.17.27-.68.87-.83 1.04-.15.17-.3.19-.56.05-.27-.14-1.11-.41-2.12-1.31-.78-.7-1.31-1.56-1.46-1.82-.15-.27-.02-.41.12-.55.12-.12.27-.3.41-.45.14-.15.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.59-1.43-.81-1.96-.21-.51-.43-.44-.59-.45h-.5c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.95 2.58 1.08 2.76c.14.18 1.86 2.84 4.5 3.98.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.57-.64 1.79-1.26.22-.62.22-1.15.15-1.26-.06-.11-.24-.18-.5-.32zM16.3 27.8h-.01a11.6 11.6 0 0 1-5.91-1.61l-.42-.25-4.39 1.15 1.17-4.28-.28-.44a11.54 11.54 0 1 1 9.84 5.43zm9.82-11.56a9.82 9.82 0 1 0-18.7 4.2l.4.68-.7 2.57 2.63-.69.66.39a9.81 9.81 0 0 0 15.71-7.15z"></path>
+    </svg>
+  </a>
 </body>
 </html>
