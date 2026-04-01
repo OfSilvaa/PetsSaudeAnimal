@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultrassom Veterinário | Agendamento pelo WhatsApp</title>
+  <title>Ultrassom Veterinario | Pets Saude Animal</title>
   <meta
     name="description"
-    content="Ultrassom veterinário com precisão e segurança para cães e gatos. Agende agora pelo WhatsApp."
+    content="Ultrassom veterinario com precisao e seguranca para caes e gatos. Agende agora pelo WhatsApp."
   >
   <style>
     :root {
-      --bg: #f5fbf8;
+      --bg: #f3f7f5;
       --surface: #ffffff;
-      --surface-soft: #eef8f3;
-      --text: #18342a;
-      --muted: #4f6b61;
-      --primary: #1f9d69;
-      --primary-dark: #15734c;
-      --accent: #dff5e9;
-      --border: #d6ebe1;
-      --shadow: 0 18px 40px rgba(24, 52, 42, 0.08);
+      --surface-soft: #ebf5f0;
+      --text: #173129;
+      --muted: #547065;
+      --primary: #16a46b;
+      --primary-dark: #10754b;
+      --border: #d7e7df;
+      --dark: #10241d;
+      --shadow: 0 20px 44px rgba(16, 36, 29, 0.08);
       --radius-lg: 24px;
       --radius-md: 18px;
-      --radius-sm: 14px;
-      --container: 1120px;
+      --container: 1140px;
     }
 
     * {
@@ -39,15 +38,9 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(31, 157, 105, 0.14), transparent 28%),
-        linear-gradient(180deg, #fbfffd 0%, var(--bg) 100%);
-      line-height: 1.5;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
+        radial-gradient(circle at top left, rgba(22, 164, 107, 0.12), transparent 24%),
+        linear-gradient(180deg, #fcfffd 0%, var(--bg) 100%);
+      line-height: 1.55;
     }
 
     a {
@@ -55,35 +48,9 @@
       text-decoration: none;
     }
 
-    .container {
-      width: min(calc(100% - 32px), var(--container));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 28px 0;
-    }
-
-    .hero {
-      padding: 20px 0 28px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--primary-dark);
-      font-size: 0.92rem;
-      font-weight: 700;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     h1,
@@ -93,6 +60,59 @@
       margin: 0;
     }
 
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.92rem;
+    }
+
+    .topbar-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 0;
+    }
+
+    .topbar a {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 30px 0;
+    }
+
+    .hero {
+      padding: 22px 0 34px;
+    }
+
+    .hero-wrap,
+    .two-col,
+    .cards,
+    .gallery-grid,
+    .testimonials,
+    .contact-grid,
+    .stats {
+      display: grid;
+      gap: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #dff3e8;
+      color: var(--primary-dark);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
     h1 {
       margin-top: 14px;
       font-size: clamp(2rem, 5vw, 3.8rem);
@@ -100,11 +120,26 @@
       letter-spacing: -0.03em;
     }
 
-    .hero p {
-      margin-top: 14px;
-      max-width: 620px;
+    .section-title {
+      margin-bottom: 10px;
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      line-height: 1.12;
+    }
+
+    .section-intro,
+    .hero-text p,
+    .card p,
+    .card li,
+    .testimonial p,
+    .contact-item a,
+    .contact-item span,
+    .hero-note {
       color: var(--muted);
-      font-size: 1.05rem;
+    }
+
+    .hero-text p,
+    .section-intro {
+      max-width: 690px;
     }
 
     .cta-row {
@@ -118,13 +153,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       min-height: 56px;
       padding: 14px 22px;
       border-radius: 999px;
       font-weight: 700;
       text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .button:hover,
@@ -133,28 +167,70 @@
     }
 
     .button-primary {
-      background: linear-gradient(135deg, #24be7a 0%, var(--primary) 100%);
-      color: #fff;
-      box-shadow: 0 14px 28px rgba(31, 157, 105, 0.25);
+      background: linear-gradient(135deg, #22c27b 0%, var(--primary) 100%);
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(22, 164, 107, 0.25);
     }
 
     .button-secondary {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #ffffff;
       color: var(--text);
+      border: 1px solid var(--border);
     }
 
-    .hero-card {
-      padding: 18px;
-      background: linear-gradient(180deg, #ffffff 0%, #f2fbf6 100%);
+    .hero-card,
+    .card,
+    .testimonial {
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
     }
 
-    .stats {
+    .hero-card {
+      padding: 18px;
+    }
+
+    .hero-media {
       display: grid;
-      gap: 14px;
+      grid-template-columns: 1.2fr 0.85fr;
+      gap: 12px;
+    }
+
+    .hero-main-image,
+    .hero-side-image,
+    .gallery-image {
+      overflow: hidden;
+      border-radius: 18px;
+      background: #dfe9e4;
+    }
+
+    .hero-main-image {
+      min-height: 360px;
+      grid-row: span 2;
+    }
+
+    .hero-side-image {
+      min-height: 174px;
+    }
+
+    .hero-main-image img,
+    .hero-side-image img,
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+      font-size: 0.95rem;
+    }
+
+    .stats {
       margin-top: 18px;
     }
 
@@ -165,48 +241,21 @@
       border-radius: var(--radius-md);
     }
 
-    .stat strong {
+    .stat strong,
+    .contact-item strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       font-size: 1rem;
     }
 
-    .cards,
-    .two-col,
-    .testimonials {
-      display: grid;
-      gap: 16px;
-    }
-
-    .card {
-      padding: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow);
+    .card,
+    .testimonial {
+      padding: 22px;
     }
 
     .card h3 {
       margin-bottom: 8px;
       font-size: 1.05rem;
-    }
-
-    .card p,
-    .card li,
-    .section-intro,
-    .testimonial p {
-      color: var(--muted);
-    }
-
-    .section-title {
-      margin-bottom: 10px;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-      line-height: 1.15;
-    }
-
-    .section-intro {
-      max-width: 720px;
-      margin-bottom: 18px;
     }
 
     ul {
@@ -222,13 +271,8 @@
       background: var(--surface-soft);
     }
 
-    .testimonial {
-      position: relative;
-      padding: 22px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow);
+    .gallery-image {
+      aspect-ratio: 4 / 3;
     }
 
     .testimonial strong {
@@ -237,16 +281,12 @@
       font-size: 0.96rem;
     }
 
-    .final-cta {
-      padding-bottom: 88px;
-    }
-
     .cta-box {
-      padding: 26px;
-      background: linear-gradient(135deg, #18342a 0%, #285946 100%);
-      color: #fff;
+      padding: 28px;
+      background: linear-gradient(135deg, #153228 0%, #285544 100%);
+      color: #ffffff;
       border-radius: var(--radius-lg);
-      box-shadow: 0 24px 48px rgba(24, 52, 42, 0.18);
+      box-shadow: 0 24px 50px rgba(16, 36, 29, 0.18);
     }
 
     .cta-box p {
@@ -254,10 +294,15 @@
       color: rgba(255, 255, 255, 0.84);
     }
 
-    .cta-box .button-secondary {
-      background: #fff;
-      color: var(--primary-dark);
-      border: 0;
+    .footer {
+      padding: 22px 0 94px;
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer strong,
+    .footer a {
+      color: #ffffff;
     }
 
     .whatsapp-float {
@@ -272,7 +317,7 @@
       align-items: center;
       justify-content: center;
       background: #25d366;
-      color: #fff;
+      color: #ffffff;
       box-shadow: 0 16px 32px rgba(37, 211, 102, 0.35);
       animation: pulse 2.2s infinite;
     }
@@ -311,22 +356,30 @@
     }
 
     @media (min-width: 720px) {
+      .topbar-wrap {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
       .hero {
-        padding: 36px 0 40px;
+        padding: 36px 0 44px;
       }
 
       .hero-wrap,
       .two-col {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
       }
 
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
+      .stats,
       .testimonials,
-      .stats {
+      .contact-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .cta-box {
@@ -341,21 +394,32 @@
       .cards {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
+
+      .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-wrap">
+      <span>Todos os atendimentos somente com hora marcada</span>
+      <a href="tel:+5511930993736">+55 11 93099-3736</a>
+    </div>
+  </div>
+
   <main>
     <section class="hero">
       <div class="container hero-wrap">
-        <div>
+        <div class="hero-text">
           <span class="badge">Agende hoje mesmo pelo WhatsApp</span>
-          <h1>Ultrassom Veterinário com Precisão e Segurança</h1>
-          <p>Atendimento especializado para cães e gatos com avaliação cuidadosa, agilidade no processo e foco em um diagnóstico confiável para orientar o melhor cuidado.</p>
+          <h1>Ultrassom Veterinario com Precisao e Seguranca</h1>
+          <p>Atendimento especializado para caes e gatos com avaliacao cuidadosa, linguagem simples e foco em agilizar o diagnostico do seu pet.</p>
           <div class="cta-row">
             <a
               class="button button-primary"
-              href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+              href="https://wa.me/5511930993736?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -365,65 +429,54 @@
           </div>
           <div class="stats">
             <div class="stat">
-              <strong>Atendimento rápido</strong>
-              <span>Agilidade no agendamento e orientação clara para o tutor.</span>
+              <strong>Atendimento rapido</strong>
+              <span>Contato facil, resposta agil e orientacao clara desde o primeiro clique.</span>
             </div>
             <div class="stat">
-              <strong>Diagnóstico com segurança</strong>
-              <span>Exame não invasivo para apoiar decisões mais assertivas.</span>
+              <strong>Diagnostico confiavel</strong>
+              <span>Exame nao invasivo para apoiar a conduta clinica com mais seguranca.</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Imagem ilustrativa do atendimento veterinário">
-          <svg viewBox="0 0 640 520" role="img" aria-labelledby="hero-svg-title">
-            <title id="hero-svg-title">Ilustração leve de exame veterinário em pet</title>
-            <defs>
-              <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ebfaf2"></stop>
-                <stop offset="100%" stop-color="#d8f3e4"></stop>
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="608" height="488" rx="30" fill="url(#cardBg)"></rect>
-            <rect x="66" y="86" width="190" height="112" rx="22" fill="#ffffff"></rect>
-            <rect x="98" y="118" width="124" height="18" rx="9" fill="#d6ebe1"></rect>
-            <rect x="98" y="150" width="88" height="18" rx="9" fill="#1f9d69" opacity="0.8"></rect>
-            <circle cx="448" cy="154" r="58" fill="#ffffff"></circle>
-            <path d="M420 160c0-22 18-40 40-40s40 18 40 40v12h-80z" fill="#1f9d69" opacity="0.2"></path>
-            <path d="M259 314c0-66 54-120 120-120 78 0 131 62 131 137 0 67-52 117-122 117-72 0-129-55-129-134z" fill="#ffffff"></path>
-            <ellipse cx="340" cy="332" rx="96" ry="74" fill="#ffdfbd"></ellipse>
-            <ellipse cx="254" cy="324" rx="62" ry="50" fill="#f4cda7"></ellipse>
-            <circle cx="238" cy="310" r="12" fill="#18342a"></circle>
-            <circle cx="410" cy="304" r="16" fill="#18342a"></circle>
-            <path d="M434 258l42-58 32 24-36 58z" fill="#1f9d69"></path>
-            <rect x="452" y="214" width="90" height="28" rx="14" fill="#18342a"></rect>
-            <rect x="172" y="370" width="292" height="30" rx="15" fill="#1f9d69" opacity="0.16"></rect>
-            <circle cx="196" cy="212" r="26" fill="#1f9d69" opacity="0.14"></circle>
-            <circle cx="544" cy="344" r="18" fill="#1f9d69" opacity="0.14"></circle>
-          </svg>
+        <div class="hero-card" aria-label="Galeria de exames veterinarios">
+          <div class="hero-media">
+            <figure class="hero-main-image">
+              <img src="assets/images/exam-01.jpeg" alt="Imagem de ultrassom veterinario abdominal">
+            </figure>
+            <figure class="hero-side-image">
+              <img src="assets/images/exam-02.jpeg" alt="Imagem de exame veterinario para avaliacao abdominal">
+            </figure>
+            <figure class="hero-side-image">
+              <img src="assets/images/exam-03.jpeg" alt="Imagem de ultrassom para diagnostico veterinario">
+            </figure>
+          </div>
+          <div class="hero-note">
+            Registros reais do exame para transmitir confianca e reforcar a experiencia da clinica.
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Benefícios rápidos</h2>
+        <h2 class="section-title">Beneficios rapidos</h2>
         <div class="cards">
           <article class="card">
-            <h3>Não invasivo</h3>
-            <p>Um exame confortável para o pet e tranquilo para o tutor.</p>
+            <h3>Nao invasivo</h3>
+            <p>Um exame confortavel para o pet e tranquilo para o tutor.</p>
           </article>
           <article class="card">
-            <h3>Rápido e seguro</h3>
-            <p>Processo ágil para avaliação com precisão e cuidado.</p>
+            <h3>Rapido e seguro</h3>
+            <p>Processo agil para avaliacao com precisao e cuidado.</p>
           </article>
           <article class="card">
-            <h3>Resultado confiável</h3>
-            <p>Informações importantes para apoiar a conduta clínica.</p>
+            <h3>Resultado confiavel</h3>
+            <p>Informacoes importantes para apoiar o melhor tratamento.</p>
           </article>
           <article class="card">
             <h3>Atendimento especializado</h3>
-            <p>Foco em cães e gatos com orientação clara em cada etapa.</p>
+            <p>Foco em caes e gatos com orientacao clara em cada etapa.</p>
           </article>
         </div>
       </div>
@@ -432,13 +485,13 @@
     <section class="section highlight" id="servico">
       <div class="container two-col">
         <div class="card">
-          <h2 class="section-title">Sobre o serviço</h2>
-          <p class="section-intro">O ultrassom veterinário é um exame de imagem que ajuda a avaliar órgãos internos, detectar alterações e acompanhar a saúde do pet com mais segurança.</p>
-          <p>Ele pode ser solicitado em casos de dor, alterações urinárias, suspeita de gestação, vômitos, check-up e outras situações em que o diagnóstico precoce faz diferença no tratamento.</p>
+          <h2 class="section-title">Sobre o servico</h2>
+          <p class="section-intro">O ultrassom veterinario e um exame de imagem que ajuda a avaliar orgaos internos, detectar alteracoes e acompanhar a saude do pet com mais seguranca.</p>
+          <p>Ele pode ser solicitado em casos de dor, alteracoes urinarias, suspeita de gestacao, vomitos, check-up e outras situacoes em que o diagnostico precoce faz diferenca no tratamento.</p>
           <div class="cta-row">
             <a
               class="button button-primary"
-              href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+              href="https://wa.me/5511930993736?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -448,11 +501,11 @@
         </div>
 
         <div class="card">
-          <h2 class="section-title">Indicações</h2>
+          <h2 class="section-title">Indicacoes</h2>
           <ul>
-            <li>Gestação</li>
-            <li>Avaliação abdominal</li>
-            <li>Problemas urinários</li>
+            <li>Gestacao</li>
+            <li>Avaliacao abdominal</li>
+            <li>Problemas urinarios</li>
             <li>Check-up</li>
           </ul>
         </div>
@@ -461,24 +514,42 @@
 
     <section class="section">
       <div class="container">
+        <h2 class="section-title">Imagens do exame</h2>
+        <p class="section-intro">Alguns registros reais para reforcar a seriedade do atendimento e o cuidado durante a avaliacao ultrassonografica.</p>
+        <div class="gallery-grid">
+          <figure class="gallery-image">
+            <img src="assets/images/exam-04.jpeg" alt="Registro real de ultrassom veterinario">
+          </figure>
+          <figure class="gallery-image">
+            <img src="assets/images/exam-05.jpeg" alt="Imagem complementar de exame veterinario">
+          </figure>
+          <figure class="gallery-image">
+            <img src="assets/images/exam-03.jpeg" alt="Imagem clinica de ultrassom em pet">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
         <h2 class="section-title">Diferenciais</h2>
-        <p class="section-intro">Uma experiência objetiva, acolhedora e pensada para facilitar o agendamento e acelerar o cuidado com o seu pet.</p>
+        <p class="section-intro">Uma experiencia objetiva, acolhedora e pensada para facilitar o agendamento e acelerar o cuidado com o seu pet.</p>
         <div class="cards">
           <article class="card">
             <h3>Equipamento moderno</h3>
-            <p>Recursos atualizados para melhor visualização das estruturas avaliadas.</p>
+            <p>Recursos atualizados para melhor visualizacao das estruturas avaliadas.</p>
           </article>
           <article class="card">
             <h3>Profissional qualificado</h3>
-            <p>Atendimento técnico com atenção aos detalhes e à segurança do exame.</p>
+            <p>Atendimento tecnico com atencao aos detalhes e a seguranca do exame.</p>
           </article>
           <article class="card">
-            <h3>Laudo rápido</h3>
+            <h3>Laudo rapido</h3>
             <p>Mais agilidade para que o tratamento possa ser conduzido sem demora.</p>
           </article>
           <article class="card">
-            <h3>Atendimento ágil</h3>
-            <p>Contato fácil e botões sempre visíveis para converter em poucos cliques.</p>
+            <h3>Atendimento agil</h3>
+            <p>Contato direto com foco em conversao rapida pelo WhatsApp.</p>
           </article>
         </div>
       </div>
@@ -489,7 +560,7 @@
         <h2 class="section-title">O que os tutores dizem</h2>
         <div class="testimonials">
           <article class="testimonial">
-            <p>"Fui atendida com rapidez e consegui agendar pelo WhatsApp no mesmo dia. O exame foi tranquilo e passou muita confiança."</p>
+            <p>"Fui atendida com rapidez e consegui agendar pelo WhatsApp no mesmo dia. O exame foi tranquilo e passou muita confianca."</p>
             <strong>Mariana, tutora da Mel</strong>
           </article>
           <article class="testimonial">
@@ -500,16 +571,36 @@
       </div>
     </section>
 
-    <section class="section final-cta">
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <div class="contact-grid">
+          <article class="card contact-item">
+            <strong>E-mail</strong>
+            <a href="mailto:contato@petssaudeanimal.com.br">contato@petssaudeanimal.com.br</a>
+          </article>
+          <article class="card contact-item">
+            <strong>Telefone</strong>
+            <a href="tel:+5511930993736">+55 11 93099-3736</a>
+          </article>
+          <article class="card contact-item">
+            <strong>Endereco</strong>
+            <span>Rua Sidnei, 363, Sao Paulo</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="container">
         <div class="cta-box">
           <div>
-            <h2 class="section-title">Agende agora e cuide da saúde do seu pet</h2>
-            <p>Agende hoje mesmo pelo WhatsApp e tenha um atendimento rápido, seguro e direto.</p>
+            <h2 class="section-title">Agende agora e cuide da saude do seu pet</h2>
+            <p>Agende hoje mesmo pelo WhatsApp e tenha um atendimento rapido, seguro e direto.</p>
           </div>
           <a
             class="button button-secondary"
-            href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+            href="https://wa.me/5511930993736?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -520,9 +611,16 @@
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <strong>Pets Saude Animal</strong>
+      <p>Rua Sidnei, 363, Sao Paulo | <a href="mailto:contato@petssaudeanimal.com.br">contato@petssaudeanimal.com.br</a> | <a href="tel:+5511930993736">+55 11 93099-3736</a></p>
+    </div>
+  </footer>
+
   <a
     class="whatsapp-float"
-    href="https://wa.me/SEUNUMERO?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
+    href="https://wa.me/5511930993736?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20ultrassom%20para%20meu%20pet"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Agendar pelo WhatsApp"
